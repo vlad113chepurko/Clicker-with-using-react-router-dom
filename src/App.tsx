@@ -6,6 +6,7 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import './App.css'
+import { motion } from "motion/react"
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,7 +17,7 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
+      <main>
         <header>
           <NavigateButton />
         </header>
@@ -29,8 +30,8 @@ function App() {
           <Route path="about" element={<About count={count} />} />
           <Route path="contact" element={<Contact count={count} />} />
         </Routes>
-      </div>
-    </Router>
+      </main>
+    </Router >
   );
 
 
@@ -44,9 +45,24 @@ function App() {
 
     return (
       <div>
-        <button onClick={handleClickHome}>Home</button>
-        <button onClick={handleClickAbout}>About</button>
-        <button onClick={handleClickContact}>Contact</button>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={handleClickHome}>Home
+        </motion.button>
+
+
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={handleClickAbout}>About
+        </motion.button>
+
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={handleClickContact}>Contact
+        </motion.button>
       </div>
     );
   }
